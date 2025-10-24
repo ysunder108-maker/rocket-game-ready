@@ -1,1 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Battle Zone Arena</title>
+        <link rel="stylesheet" href="style.css" />
+        </head>
+        <body>
+          <audio id="bgMusic" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_27e4b1e1c3.mp3?filename=electronic-vibe-111447.mp3" loop></audio>
+            <audio id="clickSound" src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_59b06d2d13.mp3?filename=click-124467.mp3"></audio>
 
+              <div class="container">
+                  <img src="https://cdn-icons-png.flaticon.com/512/1055/1055646.png" class="logo" alt="logo" />
+                      <h1>Battle Zone Arena</h1>
+                          <button id="playBtn">Play Now</button>
+                            </div>
+
+                              <div class="game-area hidden" id="gameArea">
+                                  <h2>Match Starting...</h2>
+                                      <div class="characters">
+                                            <img src="https://i.ibb.co/sKvFQgd/char1.png" alt="Player" />
+                                                  <img src="https://i.ibb.co/6yfS5Zv/char2.png" alt="Enemy" />
+                                                      </div>
+                                                          <button id="endBtn">End Match</button>
+                                                            </div>
+
+                                                              <script src="script.js"></script>
+                                                              </body>
+                                                              </html>body {
+                                                                  margin: 0;
+                                                                    padding: 0;
+                                                                      font-family: 'Poppins', sans-serif;
+                                                                        background: linear-gradient(135deg, #000000, #1c1c1c);
+                                                                          color: #ffa500;
+                                                                            text-align: center;
+                                                                            }
+
+                                                                            .hidden {
+                                                                              display: none;
+                                                                              }
+
+                                                                              .container {
+                                                                                margin-top: 20vh;
+                                                                                }
+
+                                                                                .logo {
+                                                                                  width: 120px;
+                                                                                    margin-bottom: 20px;
+                                                                                    }
+
+                                                                                    h1 {
+                                                                                      font-size: 2.5rem;
+                                                                                        color: #ffa500;
+                                                                                          text-shadow: 0 0 15px #ff7300;
+                                                                                          }
+
+                                                                                          button {
+                                                                                            padding: 10px 25px;
+                                                                                              border: none;
+                                                                                                border-radius: 12px;
+                                                                                                  background-color: #ffa500;
+                                                                                                    color: black;
+                                                                                                      font-size: 1.2rem;
+                                                                                                        cursor: pointer;
+                                                                                                          transition: 0.3s;
+                                                                                                          }
+
+                                                                                                          button:hover {
+                                                                                                            background-color: #ff6600;
+                                                                                                              color: #fff;
+                                                                                                              }
+
+                                                                                                              .game-area {
+                                                                                                                margin-top: 15vh;
+                                                                                                                }
+
+                                                                                                                .characters img {
+                                                                                                                  width: 150px;
+                                                                                                                    margin: 20px;
+                                                                                                                      border-radius: 15px;
+                                                                                                                        box-shadow: 0 0 20px #ff7300;
+                                                                                                                        }const bgMusic = document.getElementById("bgMusic");
+                                                                                                                        const clickSound = document.getElementById("clickSound");
+                                                                                                                        const playBtn = document.getElementById("playBtn");
+                                                                                                                        const endBtn = document.getElementById("endBtn");
+                                                                                                                        const gameArea = document.getElementById("gameArea");
+                                                                                                                        const container = document.querySelector(".container");
+
+                                                                                                                        playBtn.addEventListener("click", () => {
+                                                                                                                          clickSound.play();
+                                                                                                                            container.classList.add("hidden");
+                                                                                                                              gameArea.classList.remove("hidden");
+                                                                                                                                bgMusic.play();
+                                                                                                                                });
+
+                                                                                                                                endBtn.addEventListener("click", () => {
+                                                                                                                                  clickSound.play();
+                                                                                                                                    bgMusic.pause();
+                                                                                                                                      bgMusic.currentTime = 0;
+                                                                                                                                        gameArea.classList.add("hidden");
+                                                                                                                                          container.classList.remove("hidden");
+                                                                                                                                          });
+                                                              }
